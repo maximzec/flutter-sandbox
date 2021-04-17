@@ -23,46 +23,21 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MyStatefulWidget(),
-            MyStatefulWidget(),
-            MyStatefulWidget(),
+            FractionallySizedBox(
+              widthFactor: 1,
+              child: Container(
+                height: 100,
+                decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                  )
+                ]),
+              ),
+            )
           ],
         ));
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key key}) : super(key: key);
-
-  @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-}
-
-/// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  bool selected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        setState(() {
-          selected = !selected;
-        });
-      },
-      child: Center(
-        child: AnimatedContainer(
-          width: selected ? 200.0 : 100.0,
-          height: selected ? 100.0 : 200.0,
-          color: selected ? Colors.red : Colors.blue,
-          alignment:
-              selected ? Alignment.center : AlignmentDirectional.topCenter,
-          duration: const Duration(seconds: 1),
-          curve: Curves.bounceInOut,
-        ),
-      ),
-    );
   }
 }

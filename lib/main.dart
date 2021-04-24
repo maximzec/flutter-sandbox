@@ -1,6 +1,7 @@
 import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter2web/about.dart';
 
 void main() {
   runApp(MyApp());
@@ -41,9 +42,14 @@ class MyApp extends StatelessWidget {
                   children: [
                     Padding(
                       padding: EdgeInsets.only(right: 60),
-                      child: Text(
-                        "Портфолио",
-                        style: appBarActionsStyle,
+                      child: GestureDetector(
+                        onTap: () {
+                          print("YEAH");
+                        },
+                        child: Text(
+                          "Обо мне",
+                          style: appBarActionsStyle,
+                        ),
                       ),
                     ),
                     Padding(
@@ -77,19 +83,22 @@ class MyApp extends StatelessWidget {
                         children: [
                           Padding(
                             child: Container(
-                                width: 250,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      "Всем привет, это Максим!\nНа данный момент я активно практикующий Backend-разработчик",
-                                      style: TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w900,
-                                          color: postGore),
-                                      textAlign: TextAlign.justify,
-                                    ),
-                                  ],
-                                )),
+                              width: 500,
+                              child: Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Всем привет, это Максим!\nЯ Backend-разработчик, сценарист и владелец прекрасного кота",
+                                        style: TextStyle(
+                                            fontSize: 32,
+                                            fontWeight: FontWeight.w900,
+                                            color: postGore),
+                                      ),
+                                    ],
+                                  )),
+                            ),
                             padding: EdgeInsets.only(left: 60),
                           ),
                           Padding(
